@@ -32,25 +32,27 @@ void loop() {
 
   unsigned long currentTime = millis();
 
-  sensorVal = analogRead(forceSensor);
-  potentioVal = analogRead(potentiometer);
+  sensorVal = analogRead(forceSensor) / 10;
+  potentioVal = analogRead(potentiometer) / 10;
   int diff = abs(sensorVal - potentioVal);
 
 
   if (currentTime - previousTime >= interval) {
     // save the last time the LEDs blinked
     previousTime = currentTime;
-    
-    Serial.println("force sensor value \tpotentiometer value");
-    Serial.print(sensorVal);
-    Serial.print("\t\t\t");
+
+    Serial.println("------------------------------------");
+    Serial.print("force sensor value \t");
+    Serial.println(sensorVal);
+    Serial.print("potentiometer value \t");
     Serial.println(potentioVal);
-    Serial.println("difference"); 
+    Serial.print("difference \t\t"); 
     Serial.println(diff); 
-    Serial.println("\n\n\n"); 
+    Serial.println("------------------------------------");
+    Serial.println("\n\n"); 
 
 
-    if (diff < 100) {
+    if (diff < 25) {
       //turn all but green LED off 
       digitalWrite(yellowLED, LOW);
       digitalWrite(redLED, LOW);
@@ -63,7 +65,7 @@ void loop() {
       };
       digitalWrite(greenLED, greenState);
 
-    } else if ( diff >= 100 and diff < 300) {
+    } else if ( diff >= 25 and diff < 75) {
       //turn all but yellow LED off 
       digitalWrite(greenLED, LOW);
       digitalWrite(redLED, LOW);
