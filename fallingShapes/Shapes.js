@@ -33,7 +33,7 @@ function Shape(xPos, yPos) {
       this.locY = tempY;
   
       var d = dist(this.locX, this.locY, this.x, this.y);
-      if (d < this.sideLength) {
+      if (d < this.sideLength / 2) {
         this.isWithinCircle = true;
       } else {
         this.isWithinCircle = false;
