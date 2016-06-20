@@ -33,9 +33,12 @@ function mouseClicked() {
   
   if (colorStore[0] === undefined ){
     colorStore[0] = clickedIndex;
-  } else if (colorStore[1] === undefined) {
+  } else if (colorStore[1] === undefined && clickedIndex != colorStore[0]) {
     colorStore[1] = clickedIndex;
-  }
+  } 
+  
+  print(colorStore[0] + " " + colorStore[1]);
+  
   
   if (colorStore[0] !== undefined && colorStore[1] !== undefined) {
     var color1 = shapesArray[colorStore[0]].getColor();
