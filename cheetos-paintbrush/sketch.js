@@ -10,7 +10,7 @@ var colorArray = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
   video = createCapture(VIDEO); //capture the video
-  video.size(320 * 1.5, 240 * 1.5); //camera size
+  video.size(480, 360); //camera size
   video.hide();
 
   //start off tracking for red
@@ -18,12 +18,10 @@ function setup() {
 }
 
 function draw() {
-
   background(255);
-
   //for the mirror effect, to make the video look more natural
-  translate(width, 0);
-  scale(-1.0, 1.0);
+  // translate(width, 0);
+  // scale(-1.0, 1.0);
   // draw the video to canvas
   image(video, 0, 0);
   video.loadPixels();
@@ -64,12 +62,16 @@ function draw() {
   }
 
 
-  if (worldRecord < 20 && abs(closestX - prevXPos) <= 100 && abs(closestY - prevYPos) <= 100) {
+  if (worldRecord < 20 && abs(closestX - prevXPos) <= 100 && abs(closestY - prevYPos) <= 100)  {
+    //use this to limit distance difference:
+    //
     // Draw a circle at the tracked pixel
     // Must be close to previous location
     fill(trackColor);
+    stroke("black");
+    strokeWeight(7);
     ellipse(closestX, closestY, 16, 16);
-
+    noStroke();
     var size = 10;
     //to-do: map 'size' to something more meaningful and not mouseX;
 
@@ -85,6 +87,8 @@ function draw() {
 
 
 function mousePressed() {
+  //clear the previous selection
+  colorArray = [];
   //save color where the mouse is clicked in trackColor variable
   trackColor = video.get(mouseX, mouseY);
   console.log(trackColor);
@@ -101,8 +105,8 @@ function paint() {
     ellipse(colorArray[i], colorArray[i + 1], colorArray[i + 2], colorArray[i + 3]);
     noFill();
 
-    if (i - 2 <= colorArray.length) {
-      stroke(5);
+    if (i - 3 <= colorArray.length) {
+      strokeWeight(5);
       stroke(colorToPaint);
       //draw line from prevX and prevY to closestX and closestY
       line(colorArray[i], colorArray[i + 1], colorArray[i + 5], colorArray[i + 6]);
