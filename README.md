@@ -12,4 +12,4 @@
 • 
 
 # links 
-• ✏️ [My blog entries for the class](https://cc.nyuad.im/author/ashleytqy/ "Ashley's Blog Entries")
+• ✏️ [Blog entries for the class](https://cc.nyuad.im/author/ashleytqy/ "Ashley's Blog Entries")
