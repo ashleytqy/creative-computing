@@ -94,17 +94,16 @@ function mousePressed() {
 
 function paint() {
   for (var i = 0; i < colorArray.length; i += 5) {
+    var colorToPaint = colorArray[i + 4];
     noStroke();
-    //trackColor is stored in colorArray[i+4]
-    fill(colorArray[i + 4]);
+    fill(colorToPaint);
     //draw ellipse at closestX and closestY
     ellipse(colorArray[i], colorArray[i + 1], colorArray[i + 2], colorArray[i + 3]);
     noFill();
 
     if (i - 2 <= colorArray.length) {
       stroke(5);
-      //trackColor is stored in colorArray[i+4]
-      stroke(colorArray[i + 4]);
+      stroke(colorToPaint);
       //draw line from prevX and prevY to closestX and closestY
       line(colorArray[i], colorArray[i + 1], colorArray[i + 5], colorArray[i + 6]);
       noStroke();
