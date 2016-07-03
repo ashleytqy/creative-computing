@@ -13,5 +13,5 @@
 • 
 
 # links ✏️ 
-• [Blog entries for the class](https://cc.nyuad.im/author/ashleytqy/ "Ashley's Blog Entries")<br>
+• [Blog entries with a more detailed account of my programming/building process](https://cc.nyuad.im/author/ashleytqy/ "Ashley's Blog Entries")<br>
 • [Code examples in class](https://github.com/shfitz/Creative-Computing-Summer-2016 "Creative Computing code examples")
