@@ -63,15 +63,14 @@ function draw() {
 
 
   if (worldRecord < 20 && abs(closestX - prevXPos) <= 100 && abs(closestY - prevYPos) <= 100)  {
-    //use this to limit distance difference:
-    //
+
     // Draw a circle at the tracked pixel
     // Must be close to previous location
     fill(trackColor);
     stroke("black");
     strokeWeight(7);
     ellipse(closestX, closestY, 16, 16);
-    noStroke();
+    
     var size = 10;
     //to-do: map 'size' to something more meaningful and not mouseX;
 
