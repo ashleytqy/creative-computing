@@ -8,8 +8,8 @@ var trackColor;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  video = createCapture(VIDEO);
-  video.size(320 * 1.5, 240 * 1.5);
+  video = createCapture(VIDEO); //capture the video
+  video.size(320 * 1.5, 240 * 1.5); //camera size
   video.hide();
 
   // Start off tracking for red
@@ -18,10 +18,14 @@ function setup() {
 
 function draw() {
 
-  // Draw the video
-  image(video, 0, 0);
+  background(255);
+  
+  //for the mirror effect, to make the video look more natural
+  translate(width, 0);
+  scale(-1.0, 1.0);
+  // draw the video to canvas
+  image(video, 0, 0); 
 
-  // We are going to look at the video's pixels
   video.loadPixels();
 
   // Before we begin searching, the "world record" for closest color is set to a high number that is easy for the first pixel to beat.
@@ -35,7 +39,7 @@ function draw() {
     for (var x = 0; x < video.width; x++) {
 
       var loc = (x + y * video.width) * 4;
-      //var loc = (x + y * video.width) * 4;
+      
       // The functions red(), green(), and blue() pull out the three color components from a pixel.
       var r1 = video.pixels[loc];
       var g1 = video.pixels[loc + 1];
@@ -78,7 +82,7 @@ function draw() {
 
 
 function mousePressed() {
-  // Save color where the mouse is clicked in trackColor variable
+  //save color where the mouse is clicked in trackColor variable
   trackColor = video.get(mouseX, mouseY);
   console.log(trackColor);
   prevXPos = mouseX;
