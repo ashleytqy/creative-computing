@@ -1,4 +1,4 @@
-# creative-computing
+# creative computing 🎨
 • code for creative computing summer 2016 with p5.js and arduino
 
 # tech & tools 🔧
@@ -10,3 +10,6 @@
 
 # to-do ☕️
 • 
+
+# links 
+• [My blog entries for the class ✏️](https://cc.nyuad.im/author/ashleytqy/ "Ashley's Blog Entries")
