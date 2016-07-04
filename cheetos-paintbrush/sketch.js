@@ -1,6 +1,15 @@
+/*
+
+>> webcam paintbrush <<
+1. click the area you decide to the tip fo the brush
+2. re-click to redraw
+
+*/
+
 var video;
 var prevXPos;
 var prevYPos;
+//to-do: map 'size' to something more meaningful and not mouseX;
 
 //a variable for the color we are searching for.
 var trackColor;
@@ -8,7 +17,7 @@ var trackColor;
 var colorArray = [];
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(480, 360);
   video = createCapture(VIDEO); //capture the video
   video.size(480, 360); //camera size
   video.hide();
@@ -20,8 +29,8 @@ function setup() {
 function draw() {
   background(255);
   //for the mirror effect, to make the video look more natural
-  // translate(width, 0);
-  // scale(-1.0, 1.0);
+  translate(width, 0);
+  scale(-1.0, 1.0);
   // draw the video to canvas
   image(video, 0, 0);
   video.loadPixels();
@@ -33,6 +42,7 @@ function draw() {
   var closestX = 0;
   var closestY = 0;
 
+  //loop through every pixel in the video
   for (var y = 0; y < video.height; y++) {
     for (var x = 0; x < video.width; x++) {
 
@@ -47,8 +57,7 @@ function draw() {
       var g2 = trackColor[1];
       var b2 = trackColor[2];
 
-      // Using euclidean distance to compare colors
-      // We are using the dist( ) function to compare the current color with the color we are tracking.
+      // the dist( ) function compar the current color with the color we are tracking.
       var d = dist(r1, g1, b1, r2, g2, b2);
 
       // If current color is more similar to tracked color than
@@ -62,18 +71,16 @@ function draw() {
   }
 
 
-  if (worldRecord < 20 && abs(closestX - prevXPos) <= 100 && abs(closestY - prevYPos) <= 100)  {
-
+  if (worldRecord < 30) {
+  // && abs(closestX - prevXPos) <= 100 && abs(closestY - prevYPos) <= 100
     // Draw a circle at the tracked pixel
     // Must be close to previous location
     fill(trackColor);
     stroke("black");
     strokeWeight(7);
     ellipse(closestX, closestY, 16, 16);
-    
-    var size = 10;
-    //to-do: map 'size' to something more meaningful and not mouseX;
 
+    var size = 10;
     //add new X and Y to the colorArray
     colorArray.push(closestX, closestY, size, size, trackColor);
     //update prevXPos and prevYPos
@@ -82,6 +89,7 @@ function draw() {
   }
 
   paint();
+
 }
 
 
@@ -89,7 +97,14 @@ function mousePressed() {
   //clear the previous selection
   colorArray = [];
   //save color where the mouse is clicked in trackColor variable
-  trackColor = video.get(mouseX, mouseY);
+  trackColor = video.get((width - mouseX), mouseY);
+  fill(trackColor);
+  stroke("black");
+  strokeWeight(7);
+  ellipse(mouseX, mouseY, 16, 16);
+  noStroke();
+
+  // console.log(mouseX + "\t" + (width - mouseX) + " " + width);
   console.log(trackColor);
   prevXPos = mouseX;
   prevYPos = mouseY;
@@ -97,6 +112,7 @@ function mousePressed() {
 
 function paint() {
   for (var i = 0; i < colorArray.length; i += 5) {
+
     var colorToPaint = colorArray[i + 4];
     noStroke();
     fill(colorToPaint);
