@@ -2,7 +2,7 @@
 • Experiments in programming Arduino and p5.js for my Creative Computing (Summer 2016) class<br>
 
 # tech & tools 🔧
-• p5.js<br> (+ p5.sound and p5.serial)
+• p5.js (+ p5.sound and p5.serial)<br> 
 • Arduino
 
 # takeaways 🔑
