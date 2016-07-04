@@ -16,4 +16,4 @@
 
 # links ✏️ 
 • [Blog entries:](https://cc.nyuad.im/author/ashleytqy/ "Ashley's Blog Entries") A detailed account of my programming/building process<br>
-• [Code examples in class](https://github.com/shfitz/Creative-Computing-Summer-2016 "Creative Computing code examples")
+• [In-class code examples](https://github.com/shfitz/Creative-Computing-Summer-2016 "Creative Computing code examples")
