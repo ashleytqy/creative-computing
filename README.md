@@ -1,7 +1,7 @@
 # creative computing 🎨
 • Experiments in programming Arduino and p5.js for my Creative Computing (Summer 2016) class<br>
 
-## projects
+### projects 💡
 1. love machine<br>
 2. stupid pet tricks<br>
 3. [Recode Project](http://recodeproject.com/) interpretation<br>
