@@ -4,7 +4,7 @@
 ### projects 💡
 1. Love Machine<br>
 2. stupid pet tricks<br>
-3. [Recode Project](http://recodeproject.com/) interpretation<br>
+3. Recode Project Interpretation<br>
   * A p5.js interpretation of [this](http://recodeproject.com/translation/genevieve-hoffman-direct-untitled-2-aaron-marcus)
 4. on Computer Vision: <br>
   * A web app that allows you to use any object as a virtual paintbrush / pen
