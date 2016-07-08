@@ -2,13 +2,14 @@
 • Experiments in programming Arduino and p5.js for my Creative Computing (Summer 2016) class<br>
 
 ### projects 💡
-1. love machine<br>
+1. Love Machine<br>
 2. stupid pet tricks<br>
 3. [Recode Project](http://recodeproject.com/) interpretation<br>
+  * A p5.js interpretation of [this](http://recodeproject.com/translation/genevieve-hoffman-direct-untitled-2-aaron-marcus)
 4. on Computer Vision: <br>
   * A web app that allows you to use any object as a virtual paintbrush / pen
-  * Catch: the object must be of a different color than the color of your surroundings
-5. Final Project
+  * Rules: the object must be of a different color than the color of your surroundings
+5. Final Project:
   * A music visualization web app that maps the energy of a range of frequency to the size of the shapes on screen
 
 # tech & tools 🔧
